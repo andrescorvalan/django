@@ -1,6 +1,13 @@
 FROM python:3.12-bookworm
 
-RUN apt-get update && apt-get install python3-dev libgdal-dev graphviz graphviz-dev -y --force-yes
+# AÑADIR 'sqlite3' aquí para que el binario esté disponible
+RUN apt-get update && \ 
+    apt-get install -y \
+    python3-dev \
+    libgdal-dev \
+    graphviz \
+    graphviz-dev \
+    sqlite3
 
 WORKDIR /usr/src/app
 
