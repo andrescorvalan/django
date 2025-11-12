@@ -19,4 +19,8 @@ RUN pip install --no-cache-dir -r requirements.txt
 
 EXPOSE 8000
 
-CMD ["python","manage.py","runserver","0.0.0.0:8000"]
+RUN mkdir /scripts
+COPY runserver.sh /scripts/runserver.sh
+RUN chmod +x /scripts/runserver.sh
+
+CMD ["/scripts/runserver.sh"]
